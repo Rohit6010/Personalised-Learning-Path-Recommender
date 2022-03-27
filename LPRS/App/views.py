@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import SignUp
+from .models import SignUp, Array, LinkedList
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-# Create your views here.
-
 
 
 def index(request):
@@ -42,3 +40,11 @@ def handleLogin(request):
             messages.warning(request, "Invalid Credentials, please try again!")
             return HttpResponse("<h3>Invalid Credentials, please try again!</h3><br><a href='/signup'> Click here</a>")
     return render(request,'open.html')
+
+
+def test(request):
+    test = Array.objects.all();
+    context = {
+        "test" : test
+    }
+    return render(request, 'test.html', context)
