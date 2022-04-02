@@ -19,7 +19,7 @@ class Array(models.Model):
     level = models.CharField(max_length=100)
 
     def __str__ (self):
-        return self.question
+        return '(' + str(self.id) + ') ' + self.level
 
 
 class LinkedList(models.Model):
@@ -133,3 +133,16 @@ class Heap(models.Model):
 
     def __str__ (self):
         return self.question
+
+
+class Student(models.Model):
+    user = models.IntegerField(primary_key=True)
+    username = models.CharField(max_length=100)
+    name = models.CharField(max_length=50, blank=True, null=True)
+    phone = models.CharField(max_length=13, blank=True, null=True)
+    scoreBeg = models.IntegerField(default=0)
+    scoreImd = models.IntegerField(default=0)
+    scoreExp = models.IntegerField(default=0) 
+
+    def __str__ (self):
+        return self.username
