@@ -14,5 +14,5 @@ urlpatterns = [
     path('cognitiveTest', views.cognitiveTest),
     path('cogScore', views.cogScore),
     path('customSearch', views.customSearch),
-    # path('graph', views.graph)
+    path('graph', views.graph)
 ]
