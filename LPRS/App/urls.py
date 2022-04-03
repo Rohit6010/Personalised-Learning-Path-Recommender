@@ -13,6 +13,6 @@ urlpatterns = [
     path('levelDecider', views.levelDecider),
     path('cognitiveTest', views.cognitiveTest),
     path('cogScore', views.cogScore),
-    # path('customSearch', views.customSearch),
+    path('customSearch', views.customSearch),
     # path('graph', views.graph)
 ]

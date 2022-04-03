@@ -276,17 +276,17 @@ def cogScore(request):
     student.save()
     return HttpResponse("Your evaluation is completed, with scores as : text : " + str(tts) + " visual : " + str(vts))
 
-# def customSearch(request):
-#   api_key = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
-#   resource = build('customsearch', 'v1', developerKey=api_key).cse()
-#   result = resource.list(q='asymtotic notation', cx='abb409adb2e6e494d').execute()
-#   print(result['items'][0]['link'])
-#   print(result['items'][1]['link'])
-#   print(result['items'][2]['link'])
-#   print(result['items'][3]['link'])
-#   print(result['items'][4]['link'])
-#   print(result['items'][5]['link'])
-#   return HttpResponse("searched")
+def customSearch(request):
+  api_key = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
+  resource = build('customsearch', 'v1', developerKey=api_key).cse()
+  result = resource.list(q='asymtotic notation', cx='abb409adb2e6e494d').execute()
+  print(result['items'][0]['link'])
+  print(result['items'][1]['link'])
+  print(result['items'][2]['link'])
+  print(result['items'][3]['link'])
+  print(result['items'][4]['link'])
+  print(result['items'][5]['link'])
+  return HttpResponse("searched")
 
 # def graph(request):
     #connection code
