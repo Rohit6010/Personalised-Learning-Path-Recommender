@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CognitiveTest</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+</head>
+
+<body>
+    <div class="ml-16 p-8">
+        <h1 class="mb-4 text-red-400 text-2xl"><b>Assessment to determine cognitive traits</b></h1>
+        <p class="text-green-400">Based on Felder and Solomon Questionnaire</p>
+        <div class="px-8 py-4">
+            <form action="/cogScore" method="POST" class="ml-4 mt-2"> {% csrf_token %}
+               {% for quest in cogQuest %}  
+                    <h3 name="ques1">Q{{ forloop.counter }}. {{quest.question}}</h3>
+                   
+                    <input type="radio"  name="op{{forloop.counter}}" value="1">
+                    <label>{{quest.option_text}}</label><br>
+                    <input type="radio"  name="op{{forloop.counter}}" value="2">
+                    <label >{{quest.option_visual}}</label><br><br>
+                    
+                {% endfor %}
+                <button type="submit">Submit</button>
+            </form>
+    </div>
+    <br>
+    </div>
+</body>
+
+</html>
