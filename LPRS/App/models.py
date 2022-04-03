@@ -143,6 +143,17 @@ class Student(models.Model):
     scoreBeg = models.IntegerField(default=0)
     scoreImd = models.IntegerField(default=0)
     scoreExp = models.IntegerField(default=0) 
+    textual_trait = models.IntegerField(default=0)
+    visual_trait = models.IntegerField(default=0)
 
     def __str__ (self):
         return self.username
+
+
+class Cognitive(models.Model):
+    question = models.CharField(max_length=1000)
+    option_text = models.CharField(max_length=100)
+    option_visual = models.CharField(max_length=100)
+
+    def __str__ (self):
+        return self.question
