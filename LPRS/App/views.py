@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from googleapiclient.discovery import build
 
+#For knowledge graph
 from neo4j import GraphDatabase
 import logging
 from neo4j.exceptions import ServiceUnavailable
@@ -277,16 +278,45 @@ def cogScore(request):
     return HttpResponse("Your evaluation is completed, with scores as : text : " + str(tts) + " visual : " + str(vts))
 
 def customSearch(request):
-  api_key = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
-  resource = build('customsearch', 'v1', developerKey=api_key).cse()
-  result = resource.list(q='asymtotic notation', cx='abb409adb2e6e494d').execute()
-  print(result['items'][0]['link'])
-  print(result['items'][1]['link'])
-  print(result['items'][2]['link'])
-  print(result['items'][3]['link'])
-  print(result['items'][4]['link'])
-  print(result['items'][5]['link'])
-  return HttpResponse("searched")
+  #For textual material
+  api_key1 = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
+  resource1 = build('customsearch', 'v1', developerKey=api_key1).cse()
+  result1 = resource1.list(q='asymtotic notation', cx='abb409adb2e6e494d').execute()
+  text_links = [result1['items'][0]['link'], result1['items'][1]['link'], result1['items'][2]['link'], result1['items'][3]['link']]
+  
+  
+  #For visual material
+  api_key2 = "AIzaSyDjGy2izljcjoDjKeDB5eaSEGyHno5MKN8"
+  resource2 = build('customsearch', 'v1', developerKey=api_key2).cse()
+  result2 = resource2.list(q='asymtotic notation', cx='a1729a859a285ea44').execute()
+  vis_links = [result2['items'][0]['link'], result2['items'][1]['link'], result2['items'][2]['link']]
+
+  #For exercises
+  api_key3 = "AIzaSyAubkBVsLRzbrP9onmbrt0fNa8KXUJdBKE"
+  resource3 = build('customsearch', 'v1', developerKey=api_key3).cse()
+  link_probs = []
+  for i in range(1, 50, 10):
+    result3 = resource3.list(q='Array Practice Problems', cx='621330a2d0aa2929d', start=i).execute()
+
+    for j in range(10):
+        link_probs.append(result3['items'][j]['link'])
+
+  gfg = []
+  lc = []
+  hack = []
+  for links in link_probs:
+      if links.find('practice') != -1 and len(gfg) < 2:
+         gfg.append(links)
+
+      if links.find('leetcode') != -1 and len(lc) < 2:
+         lc.append(links)
+
+      if links.find('hackerrank') != -1 and len(hack) < 2:
+         hack.append(links)
+
+  prac_links = [gfg[0], gfg[1], lc[0], lc[1], hack[0], hack[1]]  
+  content = [text_links, vis_links, prac_links] 
+  return render(request, 'learnPath.html', {'content' : content})
 
 def graph(request):
     # connection code
@@ -301,7 +331,8 @@ def graph(request):
 
     return HttpResponse("Connection established")
     
-    
+
+#To establish connection with neo4j 
 class App:
 
     def __init__(self, uri, user, password):
