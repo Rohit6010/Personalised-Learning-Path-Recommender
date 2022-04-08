@@ -275,24 +275,25 @@ def cogScore(request):
     student.textual_trait = tts
     student.visual_trait = vts
     student.save()
-    return HttpResponse("Your evaluation is completed, with scores as : text : " + str(tts) + " visual : " + str(vts))
+    # return HttpResponse("Your evaluation is completed, with scores as : text : " + str(tts) + " visual : " + str(vts))
+    return render(request, 'cogScore.html', {'tts':tts, 'vts':vts})
 
 def customSearch(request):
   #For textual material
-  api_key1 = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
+  api_key1 = "AIzaSyALvniYRa-HUw_JDuOPSHSITAE8vW2iAoE"
   resource1 = build('customsearch', 'v1', developerKey=api_key1).cse()
-  result1 = resource1.list(q='asymtotic notation', cx='abb409adb2e6e494d').execute()
+  result1 = resource1.list(q='Introduction to Arrays in java', cx='abb409adb2e6e494d').execute()
   text_links = [result1['items'][0]['link'], result1['items'][1]['link'], result1['items'][2]['link'], result1['items'][3]['link']]
   
   
   #For visual material
-  api_key2 = "AIzaSyDjGy2izljcjoDjKeDB5eaSEGyHno5MKN8"
+  api_key2 = "AIzaSyALvniYRa-HUw_JDuOPSHSITAE8vW2iAoE"
   resource2 = build('customsearch', 'v1', developerKey=api_key2).cse()
-  result2 = resource2.list(q='asymtotic notation', cx='a1729a859a285ea44').execute()
+  result2 = resource2.list(q='Introduction to Arrays in java', cx='a1729a859a285ea44').execute()
   vis_links = [result2['items'][0]['link'], result2['items'][1]['link'], result2['items'][2]['link']]
 
   #For exercises
-  api_key3 = "AIzaSyAubkBVsLRzbrP9onmbrt0fNa8KXUJdBKE"
+  api_key3 = "AIzaSyALvniYRa-HUw_JDuOPSHSITAE8vW2iAoE"
   resource3 = build('customsearch', 'v1', developerKey=api_key3).cse()
   link_probs = []
   for i in range(1, 50, 10):
@@ -315,8 +316,10 @@ def customSearch(request):
          hack.append(links)
 
   prac_links = [gfg[0], gfg[1], lc[0], lc[1], hack[0], hack[1]]  
-  content = [text_links, vis_links, prac_links] 
-  return render(request, 'learnPath.html', {'content' : content})
+#   text_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb', 'kjhihfjurwyi']
+#   vis_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
+#   prac_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
+  return render(request, 'learnPath.html', {'text_link' : text_links, 'vis_link' : vis_links, 'prac_link' : prac_links,})
 
 def graph(request):
     # connection code

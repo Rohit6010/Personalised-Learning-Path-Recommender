@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructions</title>
+    <title>CogScore</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
@@ -99,54 +99,44 @@
 
     </style>
 
-
 </head>
-
 <body>
-
-   <!-- Appointment booking rules -->
-   <div id="modal" class="modal">
-    <div class="modal-content bg-gradient-to-r from-blue-600 to-blue-400">
-    <div class="modal-header pt-3">
-        <!-- <i class="fa-solid fa-circle-info text-green-500 text-5xl"></i> -->
-        <!-- <i class="fas fa-calendar-check details text-green-500 text-5xl"></i> -->
-        <center>
-        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" fill="currentColor" class="bi bi-info-circle-fill text-yellow-500" viewBox="0 0 16 16">
-          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-        </svg>
-      </center>
-        <h1 class="text-white text-xl"><strong>Level Determination Of User </strong></h1>
+    <!-- Appointment booking rules -->
+    <div id="modal" class="modal">
+        <div class="modal-content bg-gradient-to-r from-blue-600 to-blue-400">
+        <div class="modal-header pt-3">
+            <i class="fas fa-calendar-check details text-green-500 text-5xl"></i>
+            <h1 class="text-white text-xl"><strong>Cognitive Assessment Results !</strong></h1>
+        </div>
+        <hr class="mt-2">
+        <div class="py-4 modal-body">
+            <strong><h3 class="text-xl text-white">Your Cognitive Scores are  as follows :  </h3></strong>
+            <ul>
+            <li><strong><p class="text-white">Visual Score : {{vts}}</p></strong></li>
+            <li><strong><p class="text-white">Textual Score : {{tts}}</p></strong></li>
+            <li><strong><p class="text-white">Your content will be contain {{vts}}0% video material and {{tts}}0% text material.</p></strong></li>
+            </ul>
+        </div>
+        <div class="modal-footer py-4">
+            <button id = "close" onclick="changeWindowModal()"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow">
+            Proceed to content.
+            </button>
+        </div>
+        </div>
     </div>
-    <hr class="mt-2">
-    <div class="py-4 modal-body">
-        <strong><h3 class="text-xl text-white">Important Instructions </h3></strong>
-        <ul>
-        <li><strong><p class="text-white">There will be 3 tests conducted for the chosen topic each containing 10 questions.</p></strong></li>
-        <li><strong><p class="text-white">Your level will be determined depending upon your performance in these tests.</p></strong></li>
-        <li><strong><p class="text-white">First test will be of Easy level, second of Intermediate and third of Expert level.</p></strong></li>
-        </ul>
-    </div>
-    <div class="modal-footer py-4">
-        <button id = "close" onclick="changeWindowModal()"  class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow">
-        Proceed to Test.
-        </button>
-    </div>
-    </div>
-   </div>
 
 
-   <script>
-    var modal = null
-    
-      window.onload = function(){
-        modal = document.getElementById('modal')
-        modal.style.display = 'block'
-      }
-
-    function changeWindowModal(id){
-      window.location='/test/{{topic}}/Easy'
-    }
-   </script>
-
+    <script>
+        var modal = null
+        
+          window.onload = function(){
+            modal = document.getElementById('modal')
+            modal.style.display = 'block'
+          }
+  
+        function changeWindowModal(id){
+          window.location='/customSearch'
+        }
+    </script>
 </body>
 </html>
