@@ -280,20 +280,21 @@ def cogScore(request):
 
 def customSearch(request):
   #For textual material
-  api_key1 = "AIzaSyALvniYRa-HUw_JDuOPSHSITAE8vW2iAoE"
+  api_key1 = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
   resource1 = build('customsearch', 'v1', developerKey=api_key1).cse()
   result1 = resource1.list(q='Introduction to Arrays in java', cx='abb409adb2e6e494d').execute()
   text_links = [result1['items'][0]['link'], result1['items'][1]['link'], result1['items'][2]['link'], result1['items'][3]['link']]
   
   
   #For visual material
-  api_key2 = "AIzaSyALvniYRa-HUw_JDuOPSHSITAE8vW2iAoE"
+  api_key2 = "AIzaSyDjGy2izljcjoDjKeDB5eaSEGyHno5MKN8"
   resource2 = build('customsearch', 'v1', developerKey=api_key2).cse()
   result2 = resource2.list(q='Introduction to Arrays in java', cx='a1729a859a285ea44').execute()
   vis_links = [result2['items'][0]['link'], result2['items'][1]['link'], result2['items'][2]['link']]
+  
 
   #For exercises
-  api_key3 = "AIzaSyALvniYRa-HUw_JDuOPSHSITAE8vW2iAoE"
+  api_key3 = "AIzaSyAubkBVsLRzbrP9onmbrt0fNa8KXUJdBKE"
   resource3 = build('customsearch', 'v1', developerKey=api_key3).cse()
   link_probs = []
   for i in range(1, 50, 10):
