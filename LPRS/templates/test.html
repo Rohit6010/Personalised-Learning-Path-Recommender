@@ -16,10 +16,12 @@
 
 </head>
 
-<body>
+<body class="bg-blue-100">
     <div class="ml-16 p-8">
-        <h1 class="mb-4 text-yellow-500 text-2xl"><b>{{topic}}</b></h1>
-        <p class="text-blue-400 text-1xl">{{level}}</p>
+        <div style="border : 1px groove; border-radius: 12px;" class="p-3 bg-yellow-400">
+            <h1 class="text-white text-2xl"><b>Test On {{level}} Level Questions</b></h1>
+            <h4 class="text-white text-1xl"><b>{{topic}}</b></h4>
+        </div>
         <div class="px-8 py-4">
             <form action="/testScore/{{topic}}/{{level}}" method="POST" class="ml-4 mt-2"> {% csrf_token %} 
             <h3 name="ques1">Q1. {{ques1}}</h3>
@@ -86,7 +88,7 @@
             <label for="4">{{ques5op4}}</label><br>
             <!-- </div> -->
             
-            <button type="submit"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow">
+            <button type="submit"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow mt-4">
                 Submit
             </button>
             </form>
