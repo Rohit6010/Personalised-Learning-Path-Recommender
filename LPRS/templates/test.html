@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test</title>
 
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,79 +16,78 @@
 
 </head>
 
-<body class="bg-blue-100">
-    <div class="ml-16 p-8">
-        <div style="border : 1px groove; border-radius: 12px;" class="p-3 bg-yellow-400">
-            <h1 class="text-white text-2xl"><b>Test On {{level}} Level Questions</b></h1>
+<body class="pl-8 pr-8 pb-4 pt-2">
+    <div class="p-8 bg-{{color}}-100" style="border : 1px groove; border-radius: 12px;">
+        <div style="border : 1px groove; border-radius: 12px;" class="p-3 bg-{{color}}-400">
+            <h1 class="text-white text-2xl"><b>Test for {{level}} Level</b></h1>
             <h4 class="text-white text-1xl"><b>{{topic}}</b></h4>
         </div>
         <div class="px-8 py-4">
-            <form action="/testScore/{{topic}}/{{level}}" method="POST" class="ml-4 mt-2"> {% csrf_token %} 
+            <form action="/testScore/{{topic}}/{{link}}" method="POST" class="ml-4 mt-2"> {% csrf_token %} 
             <h3 name="ques1">Q1. {{ques1}}</h3>
-            <!-- <div class="ml-6 mt-2"> -->
-            <input type="radio" id="1" name="choosen1" value="{{ques1op1}}">
+            <input type="radio" id="1" name="choosen1" value="{{ques1op1}}" required>
             <label for="1">{{ques1op1}}</label><br>
-            <input type="radio" id="2" name="choosen1" value="{{ques1op2}}">
+            <input type="radio" id="2" name="choosen1" value="{{ques1op2}}" required>
             <label for="2">{{ques1op2}}</label><br>
-            <input type="radio" id="3" name="choosen1" value="{{ques1op3}}">
+            <input type="radio" id="3" name="choosen1" value="{{ques1op3}}" required>
             <label for="3">{{ques1op3}}</label><br>
-            <input type="radio" id="4" name="choosen1" value="{{ques1op4}}">
+            <input type="radio" id="4" name="choosen1" value="{{ques1op4}}" required>
             <label for="4">{{ques1op4}}</label><br>
             <!-- </div> -->
             <br>
 
             <h3 name="ques2">Q2. {{ques2}}</h3>
             <!-- <div class="ml-6 mt-2"> -->
-            <input type="radio" id="1" name="choosen_2" value="{{ques2op1}}">
+            <input type="radio" id="1" name="choosen_2" value="{{ques2op1}}" required>
             <label for="1">{{ques2op1}}</label><br>
-            <input type="radio" id="2" name="choosen_2" value="{{ques2op2}}">
+            <input type="radio" id="2" name="choosen_2" value="{{ques2op2}}" required>
             <label for="2">{{ques2op2}}</label><br>
-            <input type="radio" id="3" name="choosen_2" value="{{ques2op3}}">
+            <input type="radio" id="3" name="choosen_2" value="{{ques2op3}}" required>
             <label for="3">{{ques2op3}}</label><br>
-            <input type="radio" id="4" name="choosen_2" value="{{ques2op4}}">
+            <input type="radio" id="4" name="choosen_2" value="{{ques2op4}}" required>
             <label for="4">{{ques2op4}}</label><br>
             <!-- </div> -->
             <br>
 
             <h3 name="ques3">Q3. {{ques3}}</h3>
             <!-- <div class="ml-6 mt-2"> -->
-            <input type="radio" id="1" name="choosen_3" value="{{ques3op1}}">
+            <input type="radio" id="1" name="choosen_3" value="{{ques3op1}}" required>
             <label for="1">{{ques3op1}}</label><br>
-            <input type="radio" id="2" name="choosen_3" value="{{ques3op2}}">
+            <input type="radio" id="2" name="choosen_3" value="{{ques3op2}}" required>
             <label for="2">{{ques3op2}}</label><br>
-            <input type="radio" id="3" name="choosen_3" value="{{ques3op3}}">
+            <input type="radio" id="3" name="choosen_3" value="{{ques3op3}}" required>
             <label for="3">{{ques3op3}}</label><br>
-            <input type="radio" id="4" name="choosen_3" value="{{ques3op4}}">
+            <input type="radio" id="4" name="choosen_3" value="{{ques3op4}}" required>
             <label for="4">{{ques3op4}}</label><br>
             <!-- </div> -->
             <br>
 
             <h3 name="ques4">Q4. {{ques4}}</h3>
             <!-- <div class="ml-6 mt-2"> -->
-            <input type="radio" id="1" name="choosen_4" value="{{ques4op1}}">
+            <input type="radio" id="1" name="choosen_4" value="{{ques4op1}}" required>
             <label for="1">{{ques4op1}}</label><br>
-            <input type="radio" id="2" name="choosen_4" value="{{ques4op2}}">
+            <input type="radio" id="2" name="choosen_4" value="{{ques4op2}}" required>
             <label for="2">{{ques4op2}}</label><br>
-            <input type="radio" id="3" name="choosen_4" value="{{ques4op3}}">
+            <input type="radio" id="3" name="choosen_4" value="{{ques4op3}}" required>
             <label for="3">{{ques4op3}}</label><br>
-            <input type="radio" id="4" name="choosen_4" value="{{ques4op4}}">
+            <input type="radio" id="4" name="choosen_4" value="{{ques4op4}}" required>
             <label for="4">{{ques4op4}}</label><br>
             <!-- </div> -->
             <br>
 
             <h3 name="ques5">Q5. {{ques5}}</h3>
             <!-- <div class="ml-6 mt-2"> -->
-            <input type="radio" id="1" name="choosen_5" value="{{ques5op1}}">
+            <input type="radio" id="1" name="choosen_5" value="{{ques5op1}}" required>
             <label for="1">{{ques5op1}}</label><br>
-            <input type="radio" id="2" name="choosen_5" value="{{ques5op2}}">
+            <input type="radio" id="2" name="choosen_5" value="{{ques5op2}}" required>
             <label for="2">{{ques5op2}}</label><br>
-            <input type="radio" id="3" name="choosen_5" value="{{ques5op3}}">
+            <input type="radio" id="3" name="choosen_5" value="{{ques5op3}}" required>
             <label for="3">{{ques5op3}}</label><br>
-            <input type="radio" id="4" name="choosen_5" value="{{ques5op4}}">
+            <input type="radio" id="4" name="choosen_5" value="{{ques5op4}}" required>
             <label for="4">{{ques5op4}}</label><br>
             <!-- </div> -->
             
-            <button type="submit"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow mt-4">
+            <button type="submit"  class="bg-{{color}}-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow mt-4">
                 Submit
             </button>
             </form>
