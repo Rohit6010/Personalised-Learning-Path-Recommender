@@ -55,25 +55,25 @@ def test(request, topic, level):
     context = {}
     test = []
     if(topic=="Array"):
-        test = Array.objects.filter(level=level);
+        test = Array.objects.filter(level=level)
     elif(topic=="LinkedList"):
-        test = LinkedList.objects.all();
+        test = LinkedList.objects.all()
     elif(topic=="String"):
-        test = String.objects.all();
+        test = String.objects.all()
     elif(topic=="Stack"):
-        test = Stack.objects.all();
+        test = Stack.objects.all()
     elif(topic=="Queue"):
-        test = Queue.objects.all();
+        test = Queue.objects.all()
     elif(topic=="Tree"):
-        test = Tree.objects.all();
+        test = Tree.objects.all()
     elif(topic=="Recursion"):
-        test = Recursion.objects.all();
+        test = Recursion.objects.all()
     elif(topic=="Graph"):
-        test = Graph.objects.all();
+        test = Graph.objects.all()
     elif(topic=="DP"):
-        test = DP.objects.all();
+        test = DP.objects.all()
     elif(topic=="Heap"):
-        test = Heap.objects.all();
+        test = Heap.objects.all()
     i=1
     for ques in test:
         context["ques"+str(i)] = ques.question
@@ -84,7 +84,17 @@ def test(request, topic, level):
         context["ques"+str(i)+"op4"] = ques.option4
         i += 1
     context["topic"] = topic
-    context["level"] = level
+    if level == 'Easy':
+       context["level"] = 'Beginner'
+       context["color"] = 'green'
+    elif level == 'Medium':
+       context["level"] = 'Intermediate'
+       context["color"] = 'yellow'
+    else:
+       context["level"] = 'Expert'
+       context["color"] = 'red'
+    
+    context['link'] = level
     return render(request, 'test.html', context)
 
 def testScore(request, topic, level):
@@ -280,46 +290,46 @@ def cogScore(request):
 
 def customSearch(request):
   #For textual material
-  api_key1 = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
-  resource1 = build('customsearch', 'v1', developerKey=api_key1).cse()
-  result1 = resource1.list(q='Introduction to Arrays in java', cx='abb409adb2e6e494d').execute()
-  text_links = [result1['items'][0]['link'], result1['items'][1]['link'], result1['items'][2]['link'], result1['items'][3]['link']]
+#   api_key1 = "AIzaSyBHWk5xigAfm3H6uZkcAgZTyGljA-9Ui04"
+#   resource1 = build('customsearch', 'v1', developerKey=api_key1).cse()
+#   result1 = resource1.list(q='Introduction to Arrays in java', cx='abb409adb2e6e494d').execute()
+#   text_links = [result1['items'][0]['link'], result1['items'][1]['link'], result1['items'][2]['link'], result1['items'][3]['link']]
   
   
   #For visual material
-  api_key2 = "AIzaSyDjGy2izljcjoDjKeDB5eaSEGyHno5MKN8"
-  resource2 = build('customsearch', 'v1', developerKey=api_key2).cse()
-  result2 = resource2.list(q='Introduction to Arrays in java', cx='a1729a859a285ea44').execute()
-  vis_links = [result2['items'][0]['link'], result2['items'][1]['link'], result2['items'][2]['link']]
+#   api_key2 = "AIzaSyDjGy2izljcjoDjKeDB5eaSEGyHno5MKN8"
+#   resource2 = build('customsearch', 'v1', developerKey=api_key2).cse()
+#   result2 = resource2.list(q='Introduction to Arrays in java', cx='a1729a859a285ea44').execute()
+#   vis_links = [result2['items'][0]['link'], result2['items'][1]['link'], result2['items'][2]['link']]
   
 
   #For exercises
-  api_key3 = "AIzaSyAubkBVsLRzbrP9onmbrt0fNa8KXUJdBKE"
-  resource3 = build('customsearch', 'v1', developerKey=api_key3).cse()
-  link_probs = []
-  for i in range(1, 50, 10):
-    result3 = resource3.list(q='Array Practice Problems', cx='621330a2d0aa2929d', start=i).execute()
+#   api_key3 = "AIzaSyAubkBVsLRzbrP9onmbrt0fNa8KXUJdBKE"
+#   resource3 = build('customsearch', 'v1', developerKey=api_key3).cse()
+#   link_probs = []
+#   for i in range(1, 50, 10):
+#     result3 = resource3.list(q='Array Practice Problems', cx='621330a2d0aa2929d', start=i).execute()
 
-    for j in range(10):
-        link_probs.append(result3['items'][j]['link'])
+#     for j in range(10):
+#         link_probs.append(result3['items'][j]['link'])
 
-  gfg = []
-  lc = []
-  hack = []
-  for links in link_probs:
-      if links.find('practice') != -1 and len(gfg) < 2:
-         gfg.append(links)
+#   gfg = []
+#   lc = []
+#   hack = []
+#   for links in link_probs:
+#       if links.find('practice') != -1 and len(gfg) < 2:
+#          gfg.append(links)
 
-      if links.find('leetcode') != -1 and len(lc) < 2:
-         lc.append(links)
+#       if links.find('leetcode') != -1 and len(lc) < 2:
+#          lc.append(links)
 
-      if links.find('hackerrank') != -1 and len(hack) < 2:
-         hack.append(links)
+#       if links.find('hackerrank') != -1 and len(hack) < 2:
+#          hack.append(links)
 
-  prac_links = [gfg[0], gfg[1], lc[0], lc[1], hack[0], hack[1]]  
-#   text_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb', 'kjhihfjurwyi']
-#   vis_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
-#   prac_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
+#   prac_links = [gfg[0], gfg[1], lc[0], lc[1], hack[0], hack[1]]  
+  text_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb', 'kjhihfjurwyi']
+  vis_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
+  prac_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
   return render(request, 'learnPath.html', {'text_link' : text_links, 'vis_link' : vis_links, 'prac_link' : prac_links,})
 
 def graph(request):

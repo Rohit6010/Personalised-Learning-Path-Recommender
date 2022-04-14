@@ -16,9 +16,9 @@
 
 </head>
 
-<body class="bg-blue-100">
-    <div class="ml-16 p-8">
-        <div style="border : 1px groove; border-radius: 12px; width: 50%;" class="p-3 bg-yellow-400">
+<body class="pl-8 pr-8 pb-4 pt-2">
+    <div class="p-8 bg-purple-100" style="border : 1px groove; border-radius: 12px;">
+        <div style="border : 1px groove; border-radius: 12px; width: 50%;" class="p-3 bg-purple-400">
             <h1 class="text-white text-2xl"><b>Assessment to determine cognitive traits</b></h1>
             <p class="text-white text-1xl"><b>Based on Felder and Solomon Questionnaire</b></p>
         </div>
@@ -27,13 +27,13 @@
                {% for quest in cogQuest %}  
                     <h3 name="ques1">Q{{ forloop.counter }}. {{quest.question}}</h3>
                    
-                    <input type="radio"  name="op{{forloop.counter}}" value="1">
+                    <input type="radio"  name="op{{forloop.counter}}" value="1" required>
                     <label>{{quest.option_text}}</label><br>
-                    <input type="radio"  name="op{{forloop.counter}}" value="2">
+                    <input type="radio"  name="op{{forloop.counter}}" value="2" required>
                     <label >{{quest.option_visual}}</label><br><br>
                     
                 {% endfor %}
-                <button type="submit"  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow mt-3">
+                <button type="submit"  class="bg-purple-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow mt-3">
                     Submit
                 </button>
             </form>

@@ -14,49 +14,52 @@
 </head>
 
 <body class="bg-blue-100">
-    <nav class="bg-blue-400 border-gray-200 px-64 sm:px-4 py-2.5">
+    <nav class="bg-gradient-to-r from-pink-400 via-indigo-500 to-purple-600  px-64 sm:px-4 py-5">
         <div class="container flex flex-wrap justify-between items-center mx-auto px-32">
-            <a href="/" class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-book-fill" viewBox="0 0 16 16" style="color: #faca08;">
-                    <path d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-                </svg>
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white ml-2" style="color: #faca08;">  LPRS</span>
-            </a>
-            <button data-collapse-toggle="mobile-menu" type="button"
-                class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="mobile-menu" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-                <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-                    {% if request.user.is_authenticated %}
-                    <p>Hi {{user.username}}</p>
-                    {% endif %}
-                    <li class="bg-yellow-500 rounded px-4 py-1">
-                        {% if request.user.is_authenticated %}
-                        <a href="logout"
-                            class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                            aria-current="page">Logout</a>
-                        {% else %}
-                        <a href="login"
-                            class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                            aria-current="page">Login</a>
-                        {% endif %}
-                    </li>
-                </ul>
-            </div>
+          <a href="/" class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-book-fill"
+              viewBox="0 0 16 16" style="color: rgb(184, 185, 180);">
+              <path
+                d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+            </svg>
+            <span style="color: rgb(184, 185, 180);" class="self-center text-xl font-bold whitespace-nowrap ml-2"> PLPR</span>
+          </a>
+          <button data-collapse-toggle="mobile-menu" type="button"
+            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+            <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+              {% if request.user.is_authenticated %}
+              <p style="font-weight: 700; color : rgb(184, 185, 180);">Hi {{user.username}}</p>
+              {% endif %}
+              <li class="bg-yellow-500 rounded px-4 py-1">
+                {% if request.user.is_authenticated %}
+                <a href="logout"
+                  class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                  aria-current="page">Logout</a>
+                {% else %}
+                <a href="login"
+                  class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                  aria-current="page">Login</a>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
+      </nav>
+    
 
     <div class="flex space-x-2 ml-16 mt-16 justify-center">
         <button type="button"
