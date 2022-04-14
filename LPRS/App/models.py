@@ -157,3 +157,15 @@ class Cognitive(models.Model):
 
     def __str__ (self):
         return self.question
+
+
+
+class Practice(models.Model):
+    topic = models.CharField(max_length=50)
+    question = models.CharField(max_length=500)
+    link = models.CharField(max_length=500)
+    level = models.CharField(max_length=50)
+    subTopic = models.CharField(max_length=100)
+
+    def __str__ (self):
+        return "("+self.topic + ", "+ self.subTopic+") "+ self.question
