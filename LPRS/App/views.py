@@ -11,6 +11,9 @@ from neo4j import GraphDatabase
 import logging
 from neo4j.exceptions import ServiceUnavailable
 
+#For web scraping using beautiful soup
+from bs4 import BeautifulSoup
+import requests
 
 def index(request):
     return render(request, 'index.html')
@@ -330,6 +333,10 @@ def customSearch(request):
   text_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb', 'kjhihfjurwyi']
   vis_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
   prac_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
+
+
+#   html_text = requests.get('https://www.geeksforgeeks.org/introduction-to-arrays/').text
+#   print(html_text)
   return render(request, 'learnPath.html', {'text_link' : text_links, 'vis_link' : vis_links, 'prac_link' : prac_links,})
 
 def graph(request):
