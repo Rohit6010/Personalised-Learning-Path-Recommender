@@ -11,7 +11,8 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/6a9a7e3ef8.js" crossorigin="anonymous"></script>
 </head>
 
@@ -68,235 +69,413 @@
     }
 </style>
 
-<body class="bg-blue-100">
+<body class="">
     <nav class="bg-gradient-to-r from-pink-400 via-indigo-500 to-purple-600  px-64 sm:px-4 py-2">
         <div class="container flex flex-wrap justify-between items-center mx-auto px-32">
-          <a href="/" class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-book-fill"
-              viewBox="0 0 16 16" style="color: rgb(184, 185, 180);">
-              <path
-                d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-            </svg>
-            <span style="color: rgb(184, 185, 180);" class="self-center text-xl font-bold whitespace-nowrap ml-2"> PLPR</span>
-          </a>
-          <button data-collapse-toggle="mobile-menu" type="button"
-            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
-          <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-            <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-              {% if request.user.is_authenticated %}
-              <p style="font-weight: 700; color : rgb(184, 185, 180);">Hi {{user.username}}</p>
-              {% endif %}
-              <li class="bg-yellow-500 rounded px-4 py-1">
-                {% if request.user.is_authenticated %}
-                <a href="logout"
-                  class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                  aria-current="page">Logout</a>
-                {% else %}
-                <a href="login"
-                  class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                  aria-current="page">Login</a>
-                {% endif %}
-              </li>
-            </ul>
-          </div>
+            <a href="/" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                    class="bi bi-book-fill" viewBox="0 0 16 16" style="color: rgb(184, 185, 180);">
+                    <path
+                        d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+                </svg>
+                <span style="color: rgb(184, 185, 180);" class="self-center text-xl font-bold whitespace-nowrap ml-2">
+                    PLPR</span>
+            </a>
+            <button data-collapse-toggle="mobile-menu" type="button"
+                class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+                <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                    {% if request.user.is_authenticated %}
+                    <p style="font-weight: 700; color : rgb(184, 185, 180);">Hi {{user.username}}</p>
+                    {% endif %}
+                    <li class="bg-yellow-500 rounded px-4 py-1">
+                        {% if request.user.is_authenticated %}
+                        <a href="logout"
+                            class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                            aria-current="page">Logout</a>
+                        {% else %}
+                        <a href="login"
+                            class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                            aria-current="page">Login</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    
 
-    <div class="grid grid-cols-3 gap-4 px-4 py-4">
-             <div class="max-w-sm bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                  <center>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="70" fill="currentColor" class="bi bi-file-text-fill" viewBox="0 0 16 16" style="color: #2971dd;">
-                        <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z"/>
-                    </svg>
-                    <h5 class="mb-3 text-xl font-medium text-gray-500 dark:text-gray-400">Textual Material</h5>
-                
+    <div class="grid grid-cols-2">
+        <div class="p-3 mt-2 ml-6">
+            <div class="pt-2 pb-3 bg-gray-100" style="border-radius: 12px;">
+                <div style="margin-left: 30%; margin-top: 3%;">
+                    <button type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Introduction To Arrays</button>
+                </div>
 
-                    <ul role="list" class="my-3">
-                      {% for t in text_link %}
-                        <li class="my-2">
-                            <a href="{{t}}"> Text Content {{forloop.counter}} </a>
-                        </li>
-                      {% endfor %}
-                    </ul>
+              <div class="p-2 mt-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="600" height="400"
+                      viewBox="0 0 821.16801 687.80201" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <polygon points="755.994 674.556 743.734 674.555 737.902 627.268 755.996 627.268 755.994 674.556"
+                          fill="#9e616a" />
+                      <path
+                          d="M948.53667,792.539l-39.53076-.00146v-.5a15.3873,15.3873,0,0,1,15.38647-15.38623h.001l24.144.001Z"
+                          transform="translate(-189.41599 -106.099)" fill="#2f2e41" />
+                      <polygon points="708.994 674.556 696.734 674.555 690.902 627.268 708.996 627.268 708.994 674.556"
+                          fill="#9e616a" />
+                      <path
+                          d="M901.53667,792.539l-39.53076-.00146v-.5a15.3873,15.3873,0,0,1,15.38647-15.38623h.001l24.144.001Z"
+                          transform="translate(-189.41599 -106.099)" fill="#2f2e41" />
+                      <path id="ae5c11dc-7e77-468a-a39f-cc8da6ee1565-236" data-name="Path 1495"
+                          d="M368.748,790.71V410.9a8.82,8.82,0,0,1,8.82-8.82h39.36a8.82,8.82,0,0,1,8.82,8.82h0V791.7Z"
+                          transform="translate(-189.41599 -106.099)" fill="#3f3d56" />
+                      <path id="bc696f83-47b6-45c9-967f-bb64f1f3bee5-237" data-name="Path 1496"
+                          d="M498.748,791.9v-302a8.82,8.82,0,0,1,8.82-8.82h39.36a8.82,8.82,0,0,1,8.82,8.82h0V791.25Z"
+                          transform="translate(-189.41599 -106.099)" fill="#3f3d56" />
+                      <path
+                          d="M267.747,433.09884a2.9998,2.9998,0,0,1-2.23278-5.00244l131.60547-146.791L526.638,354.03488,656.92679,129.53732,789.65458,238.78244a3.00008,3.00008,0,1,1-3.813,4.63281L658.56937,138.66037,528.85819,362.16281,398.37614,288.8923,269.9816,432.10129A2.99144,2.99144,0,0,1,267.747,433.09884Z"
+                          transform="translate(-189.41599 -106.099)" fill="#3f3d56" />
+                      <circle id="a1f8771a-4bf9-4603-9747-6ae739e4ad47" data-name="Ellipse 300" cx="77.832" cy="324" r="28"
+                          fill="#8a19e4" />
+                      <circle id="ffdbdf53-78c2-412f-9ede-372406e5d245" data-name="Ellipse 301" cx="207.832" cy="179" r="28"
+                          fill="#ccc" />
+                      <circle id="b7cff929-f00d-4f86-944c-e500b6ceb6ad" data-name="Ellipse 302" cx="337.832" cy="252" r="28"
+                          fill="#e6e6e6" />
+                      <circle id="eabc0b76-6faa-4fa0-934c-daff28b491dd" data-name="Ellipse 303" cx="467.832" cy="28" r="28"
+                          fill="#8a19e4" />
+                      <circle id="a7ca0488-8ee6-49e2-b245-2872b84c042e" data-name="Ellipse 304" cx="717.832" cy="236.535"
+                          r="28" fill="#8a19e4" />
+                      <path id="b579ef19-595a-43de-9b6d-0ead8268ca48-238" data-name="Path 1507"
+                          d="M897.348,560.755c10.47981,1.26236,37.279-8.29806,38.73146,6.24641,13.7938,40.605,13.38448,196.25632,13.38448,196.25632l-21,1S911.683,640.58334,903.74813,614.12488c-3.98187,32.159-3.28421,155.13285-3.28421,155.13285l-19,1s-17.04317-104.7174-17.14045-135.45308c-2.07126-22.51351,3.00876-55.87593.83463-77.63979a83.21836,83.21836,0,0,0,32.19,3.59Z"
+                          transform="translate(-189.41599 -106.099)" fill="#3f3d56" />
+                      <path id="b3465432-03e0-48eb-8016-b04aa244e72c-239" data-name="Path 1513"
+                          d="M758.748,790.554V352.8c0-5.614,3.949-10.166,8.82-10.166h39.36c4.871,0,8.82,4.551,8.82,10.166V791.7Z"
+                          transform="translate(-189.41599 -106.099)" fill="#3f3d56" />
+                      <path id="ac7870c5-efcc-4c4b-b17f-07e0bff4d096-240" data-name="Path 1508"
+                          d="M861.698,442.955a130.65716,130.65716,0,0,0-15.31-24.17,38.322,38.322,0,0,1-3.4-4.64c-2.15-3.73-2.79-8.11-4.15-12.19-3.8-11.44-13.28-20.63-15.59-32.46-.84-4.3-7.93567,8.19791-6.07,13.53,3.33,9.65,3.76,19.87,8,29.19s9.22,18.26,12.88,27.79c2.08,5.41,3.74,11,6.79,16s7.81,9.19,13.56,9.94a33.44983,33.44983,0,0,1,1.63013-10.68C861.288,451.325,863.508,446.685,861.698,442.955Z"
+                          transform="translate(-189.41599 -106.099)" fill="#9e616a" />
+                      <path id="be4b35b3-6955-40b7-9549-45fdba6a2930-241" data-name="Path 1509"
+                          d="M924.608,449.435a55.25867,55.25867,0,0,1,3.25-20.78c.92-2.55,2-5.14,1.91-7.85-.13-2.52-1.33-4.83-2.42-7.11-3.76-7.85-6.4-16.17-9-24.47l-5-15.65c-1.63018-1.19543,7.89-1.61,9.92,1.2,6.64,9.22,11.67,19.81,16.93005,29.88a50.57714,50.57714,0,0,1,3.42,7.49,41.18565,41.18565,0,0,1,1.8,12.94c0,8.19-1.07995,16.35-2.19995,24.47-.71,5.09-1.64,10.63-5.49,14C933.72793,458.435,929.708,453.435,924.608,449.435Z"
+                          transform="translate(-189.41599 -106.099)" fill="#9e616a" />
+                      <circle id="a7d383a2-21d6-4551-be8a-8c82a5e576cb" data-name="Ellipse 307" cx="708.75198" cy="314.48401"
+                          r="20.75" fill="#9e616a" />
+                      <path id="fb091cb1-8ad4-4d57-b74d-c940c723d6bf-242" data-name="Path 1512"
+                          d="M881.29986,399.881a3.602,3.602,0,0,1,.75956-3.72335c.51814-.40831,1.20624-.56062,1.7617-.95027a7.602,7.602,0,0,0,1.89952-2.40314,10.31516,10.31516,0,0,1,12.909-3.27672c3.42909,1.79484,5.49957,5.38869,8.54935,7.80841,1.54823,1.25389,3.34408,2.18449,4.90161,3.43838a20.14613,20.14613,0,0,1,6.35451,10.27787,58.31035,58.31035,0,0,1,1.7617,12.12454,10.90476,10.90476,0,0,1-.142,3.68607,10.31659,10.31659,0,0,1-1.39586,2.84979c-3.13478,4.7493-7.26645,9.0623-12.4437,11.5131s-11.47477,2.84979-16.58055.285a2.84975,2.84975,0,0,1-1.27259-1.01658,3.65791,3.65791,0,0,1-.199-2.19382,15.01763,15.01763,0,0,0-1.65284-8.40634c-.95027-1.89951-2.37516-3.53373-3.13479-5.49956a19.15971,19.15971,0,0,1-.89328-6.81979C882.39205,411.59309,882.79831,405.63756,881.29986,399.881Z"
+                          transform="translate(-189.41599 -106.099)" fill="#2d293d" />
+                      <path id="ef6ae9ea-be37-4bc6-b1be-067860dc7e9d-243" data-name="Path 1514"
+                          d="M238.747,791.149V579.808c0-2.71,3.949-4.908,8.82-4.908h39.36c4.871,0,8.82,2.2,8.82,4.908V791.7Z"
+                          transform="translate(-189.41599 -106.099)" fill="#3f3d56" />
+                      <path id="b4c810f7-8361-4f56-9780-d97c96bbbba4-244" data-name="Path 944"
+                          d="M1009.585,793.901H190.416a1,1,0,1,1,0-2h819.168a1,1,0,0,1,0,2Z"
+                          transform="translate(-189.41599 -106.099)" fill="#e6e6e6" />
+                      <path id="b32730d1-ac43-40b1-a176-73e18bf362e5-245" data-name="Path 1515"
+                          d="M628.747,790.405V293.635c0-6.371,3.949-11.536,8.82-11.536h39.36c4.871,0,8.82,5.165,8.82,11.536V791.7Z"
+                          transform="translate(-189.41599 -106.099)" fill="#8a19e4" />
+                      <circle cx="627.18243" cy="265.36557" r="9" fill="#a0616a" />
+                      <circle cx="727.18243" cy="261.36557" r="9" fill="#a0616a" />
+                      <path
+                          d="M938.46807,478.875c.87817-.80359,8.0376-42.67377,7.99585-43.61731-.1106-5.15845-15.85-11.05-19-9-2.97187,1.93408-8.14667,24.12415-11.477,28.16529l-3.523-6.16529h-28l-1.69708,3.15174c-3.674-2.21338-6.97907-4.25409-8.15784-4.92933a5.30006,5.30006,0,0,0-1.311-.64495,20.31093,20.31093,0,0,1-8-3.76c-2.3-1.77-12.97412-20.30744-15.8341-19.81745-3.23.54-14.1247,9.96-14,19,1.37152-.02929,19.21374,35.64765,19.46411,36.97736,1.37,5.62,5.89392,87.57995,7.35394,91.4,6.726-.65,1.416-1.81,7.926,0,7.01,1.95,14.41-.16,21.64-.94a83.11362,83.11362,0,0,1,9.06-.4c11,.05,26.7.66,37.35,3.39.06006-6.98-6.06994-22.08-8.34-28.67a19.24793,19.24793,0,0,1,.03-5.94C930.23809,534.66508,936.09356,481.53978,938.46807,478.875Z"
+                          transform="translate(-189.41599 -106.099)" fill="#e6e6e6" />
+                  </svg>
+              </div>
+  
+              <div style="margin-left: 30%; margin-top: 4%;">
+                  <button type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Move To Next Topic</button>
+              </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 px-4 py-4">
+            <div class="pl-4 pr-4 pt-3 pb-0 max-w-sm bg-purple-500 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700"
+                style="height:320px">
+                <h5 class="mb-2 text-base font-semibold text-gray-900 lg:text-xl dark:text-white">
+                    Textual Material
+                </h5>
+                <ul class="my-1 space-y-1">
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-card-text" viewBox="0 0 16 16" style="color: #6907ba;">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">MetaMask</span>
+                            <span
+                                class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 292 292" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M145.7 291.66C226.146 291.66 291.36 226.446 291.36 146C291.36 65.5541 226.146 0.339844 145.7 0.339844C65.2542 0.339844 0.0400391 65.5541 0.0400391 146C0.0400391 226.446 65.2542 291.66 145.7 291.66Z"
+                                    fill="#3259A5"></path>
+                                <path
+                                    d="M195.94 155.5C191.49 179.08 170.8 196.91 145.93 196.91C117.81 196.91 95.0204 174.12 95.0204 146C95.0204 117.88 117.81 95.0897 145.93 95.0897C170.8 95.0897 191.49 112.93 195.94 136.5H247.31C242.52 84.7197 198.96 44.1797 145.93 44.1797C89.6904 44.1797 44.1104 89.7697 44.1104 146C44.1104 202.24 89.7004 247.82 145.93 247.82C198.96 247.82 242.52 207.28 247.31 155.5H195.94Z"
+                                    fill="white"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Coinbase Wallet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <radialGradient cx="0%" cy="50%" fx="0%" fy="50%" r="100%" id="radialGradient-1">
+                                        <stop stop-color="#5D9DF6" offset="0%"></stop>
+                                        <stop stop-color="#006FFF" offset="100%"></stop>
+                                    </radialGradient>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="logo">
+                                        <rect id="base" fill="url(#radialGradient-1)" x="0" y="0" width="512"
+                                            height="512" rx="256"></rect>
+                                        <path
+                                            d="M169.209772,184.531136 C217.142772,137.600733 294.857519,137.600733 342.790517,184.531136 L348.559331,190.179285 C350.955981,192.525805 350.955981,196.330266 348.559331,198.676787 L328.82537,217.99798 C327.627045,219.171241 325.684176,219.171241 324.485851,217.99798 L316.547278,210.225455 C283.10802,177.485633 228.89227,177.485633 195.453011,210.225455 L186.951456,218.549188 C185.75313,219.722448 183.810261,219.722448 182.611937,218.549188 L162.877976,199.227995 C160.481326,196.881474 160.481326,193.077013 162.877976,190.730493 L169.209772,184.531136 Z M383.602212,224.489406 L401.165475,241.685365 C403.562113,244.031874 403.562127,247.836312 401.165506,250.182837 L321.971538,327.721548 C319.574905,330.068086 315.689168,330.068112 313.292501,327.721609 C313.292491,327.721599 313.29248,327.721588 313.29247,327.721578 L257.08541,272.690097 C256.486248,272.103467 255.514813,272.103467 254.915651,272.690097 C254.915647,272.690101 254.915644,272.690105 254.91564,272.690108 L198.709777,327.721548 C196.313151,330.068092 192.427413,330.068131 190.030739,327.721634 C190.030725,327.72162 190.03071,327.721606 190.030695,327.721591 L110.834524,250.181849 C108.437875,247.835329 108.437875,244.030868 110.834524,241.684348 L128.397819,224.488418 C130.794468,222.141898 134.680206,222.141898 137.076856,224.488418 L193.284734,279.520668 C193.883897,280.107298 194.85533,280.107298 195.454493,279.520668 C195.454502,279.520659 195.45451,279.520651 195.454519,279.520644 L251.65958,224.488418 C254.056175,222.141844 257.941913,222.141756 260.338618,224.488222 C260.338651,224.488255 260.338684,224.488288 260.338717,224.488321 L316.546521,279.520644 C317.145683,280.107273 318.117118,280.107273 318.71628,279.520644 L374.923175,224.489406 C377.319825,222.142885 381.205562,222.142885 383.602212,224.489406 Z"
+                                            id="WalletConnect" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">WalletConnect</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-4" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M72.0998 0.600098H48.3998H24.5998H0.799805V24.4001V48.2001V49.7001V71.8001V71.9001V95.5001H24.5998V72.0001V71.9001V49.8001V48.3001V24.5001H48.3998H72.1998H95.9998V0.700104H72.0998V0.600098Z"
+                                    fill="#617BFF"></path>
+                                <path
+                                    d="M48.5 71.8002H72.1V95.6002H73C79.1 95.6002 84.9 93.2002 89.2 88.9002C93.5 84.6002 95.9 78.8002 95.9 72.7002V48.2002H48.5V71.8002Z"
+                                    fill="#617BFF"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Fortmatic</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                    <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">
-                     Complete   
-                    </button>
-                  </center>
-             </div>
-    
-             <div class="max-w-sm bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <center>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="50" fill="currentColor" class="bi bi-play-btn-fill" viewBox="0 0 16 16" style="color: #2971dd;">
-                        <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
-                    </svg>
-                  <h5 class="mb-3 text-xl font-medium text-gray-500 dark:text-gray-400">Visual Material</h5>
-              
+            <div class="pl-4 pr-4 pt-3 pb-0 max-w-sm bg-purple-500 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700"
+                style="height:320px">
+                <h5 class="mb-2 text-base font-semibold text-gray-900 lg:text-xl dark:text-white">
+                    Visual Material
+                </h5>
+                <ul class="my-1 space-y-1">
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-card-text" viewBox="0 0 16 16" style="color: #6907ba;">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">MetaMask</span>
+                            <span
+                                class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 292 292" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M145.7 291.66C226.146 291.66 291.36 226.446 291.36 146C291.36 65.5541 226.146 0.339844 145.7 0.339844C65.2542 0.339844 0.0400391 65.5541 0.0400391 146C0.0400391 226.446 65.2542 291.66 145.7 291.66Z"
+                                    fill="#3259A5"></path>
+                                <path
+                                    d="M195.94 155.5C191.49 179.08 170.8 196.91 145.93 196.91C117.81 196.91 95.0204 174.12 95.0204 146C95.0204 117.88 117.81 95.0897 145.93 95.0897C170.8 95.0897 191.49 112.93 195.94 136.5H247.31C242.52 84.7197 198.96 44.1797 145.93 44.1797C89.6904 44.1797 44.1104 89.7697 44.1104 146C44.1104 202.24 89.7004 247.82 145.93 247.82C198.96 247.82 242.52 207.28 247.31 155.5H195.94Z"
+                                    fill="white"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Coinbase Wallet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <radialGradient cx="0%" cy="50%" fx="0%" fy="50%" r="100%" id="radialGradient-1">
+                                        <stop stop-color="#5D9DF6" offset="0%"></stop>
+                                        <stop stop-color="#006FFF" offset="100%"></stop>
+                                    </radialGradient>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="logo">
+                                        <rect id="base" fill="url(#radialGradient-1)" x="0" y="0" width="512"
+                                            height="512" rx="256"></rect>
+                                        <path
+                                            d="M169.209772,184.531136 C217.142772,137.600733 294.857519,137.600733 342.790517,184.531136 L348.559331,190.179285 C350.955981,192.525805 350.955981,196.330266 348.559331,198.676787 L328.82537,217.99798 C327.627045,219.171241 325.684176,219.171241 324.485851,217.99798 L316.547278,210.225455 C283.10802,177.485633 228.89227,177.485633 195.453011,210.225455 L186.951456,218.549188 C185.75313,219.722448 183.810261,219.722448 182.611937,218.549188 L162.877976,199.227995 C160.481326,196.881474 160.481326,193.077013 162.877976,190.730493 L169.209772,184.531136 Z M383.602212,224.489406 L401.165475,241.685365 C403.562113,244.031874 403.562127,247.836312 401.165506,250.182837 L321.971538,327.721548 C319.574905,330.068086 315.689168,330.068112 313.292501,327.721609 C313.292491,327.721599 313.29248,327.721588 313.29247,327.721578 L257.08541,272.690097 C256.486248,272.103467 255.514813,272.103467 254.915651,272.690097 C254.915647,272.690101 254.915644,272.690105 254.91564,272.690108 L198.709777,327.721548 C196.313151,330.068092 192.427413,330.068131 190.030739,327.721634 C190.030725,327.72162 190.03071,327.721606 190.030695,327.721591 L110.834524,250.181849 C108.437875,247.835329 108.437875,244.030868 110.834524,241.684348 L128.397819,224.488418 C130.794468,222.141898 134.680206,222.141898 137.076856,224.488418 L193.284734,279.520668 C193.883897,280.107298 194.85533,280.107298 195.454493,279.520668 C195.454502,279.520659 195.45451,279.520651 195.454519,279.520644 L251.65958,224.488418 C254.056175,222.141844 257.941913,222.141756 260.338618,224.488222 C260.338651,224.488255 260.338684,224.488288 260.338717,224.488321 L316.546521,279.520644 C317.145683,280.107273 318.117118,280.107273 318.71628,279.520644 L374.923175,224.489406 C377.319825,222.142885 381.205562,222.142885 383.602212,224.489406 Z"
+                                            id="WalletConnect" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">WalletConnect</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-4" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M72.0998 0.600098H48.3998H24.5998H0.799805V24.4001V48.2001V49.7001V71.8001V71.9001V95.5001H24.5998V72.0001V71.9001V49.8001V48.3001V24.5001H48.3998H72.1998H95.9998V0.700104H72.0998V0.600098Z"
+                                    fill="#617BFF"></path>
+                                <path
+                                    d="M48.5 71.8002H72.1V95.6002H73C79.1 95.6002 84.9 93.2002 89.2 88.9002C93.5 84.6002 95.9 78.8002 95.9 72.7002V48.2002H48.5V71.8002Z"
+                                    fill="#617BFF"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Fortmatic</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                  <ul role="list" class="my-3">
-                    {% for v in vis_link %}
-                      <li class="my-2">
-                          <a href="{{v}}"> Video Content {{forloop.counter}} </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
 
-                  <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">
-                   Complete   
-                  </button>
-                </center>
-             </div>
-            
-             <div class="max-w-sm bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                <center>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="70" fill="currentColor" class="bi bi-file-earmark-code-fill" viewBox="0 0 16 16" style="color: #2971dd;">
-                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM6.646 7.646a.5.5 0 1 1 .708.708L5.707 10l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zm2.708 0 2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 10 8.646 8.354a.5.5 0 1 1 .708-.708z"/>
-                    </svg>
-                  <h5 class="mb-3 text-xl font-medium text-gray-500 dark:text-gray-400">Practice Material</h5>
-              
+            <div class="pl-4 pr-4 pt-3 pb-0 max-w-sm bg-purple-500 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700"
+                style="height:260px">
+                <h5 class="mb-2 text-base font-semibold text-gray-900 lg:text-xl dark:text-white">
+                    Practice Material 1
+                </h5>
+                <ul class="my-1 space-y-1">
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-card-text" viewBox="0 0 16 16" style="color: #6907ba;">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">MetaMask</span>
+                            <span
+                                class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 292 292" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M145.7 291.66C226.146 291.66 291.36 226.446 291.36 146C291.36 65.5541 226.146 0.339844 145.7 0.339844C65.2542 0.339844 0.0400391 65.5541 0.0400391 146C0.0400391 226.446 65.2542 291.66 145.7 291.66Z"
+                                    fill="#3259A5"></path>
+                                <path
+                                    d="M195.94 155.5C191.49 179.08 170.8 196.91 145.93 196.91C117.81 196.91 95.0204 174.12 95.0204 146C95.0204 117.88 117.81 95.0897 145.93 95.0897C170.8 95.0897 191.49 112.93 195.94 136.5H247.31C242.52 84.7197 198.96 44.1797 145.93 44.1797C89.6904 44.1797 44.1104 89.7697 44.1104 146C44.1104 202.24 89.7004 247.82 145.93 247.82C198.96 247.82 242.52 207.28 247.31 155.5H195.94Z"
+                                    fill="white"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Coinbase Wallet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <radialGradient cx="0%" cy="50%" fx="0%" fy="50%" r="100%" id="radialGradient-1">
+                                        <stop stop-color="#5D9DF6" offset="0%"></stop>
+                                        <stop stop-color="#006FFF" offset="100%"></stop>
+                                    </radialGradient>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="logo">
+                                        <rect id="base" fill="url(#radialGradient-1)" x="0" y="0" width="512"
+                                            height="512" rx="256"></rect>
+                                        <path
+                                            d="M169.209772,184.531136 C217.142772,137.600733 294.857519,137.600733 342.790517,184.531136 L348.559331,190.179285 C350.955981,192.525805 350.955981,196.330266 348.559331,198.676787 L328.82537,217.99798 C327.627045,219.171241 325.684176,219.171241 324.485851,217.99798 L316.547278,210.225455 C283.10802,177.485633 228.89227,177.485633 195.453011,210.225455 L186.951456,218.549188 C185.75313,219.722448 183.810261,219.722448 182.611937,218.549188 L162.877976,199.227995 C160.481326,196.881474 160.481326,193.077013 162.877976,190.730493 L169.209772,184.531136 Z M383.602212,224.489406 L401.165475,241.685365 C403.562113,244.031874 403.562127,247.836312 401.165506,250.182837 L321.971538,327.721548 C319.574905,330.068086 315.689168,330.068112 313.292501,327.721609 C313.292491,327.721599 313.29248,327.721588 313.29247,327.721578 L257.08541,272.690097 C256.486248,272.103467 255.514813,272.103467 254.915651,272.690097 C254.915647,272.690101 254.915644,272.690105 254.91564,272.690108 L198.709777,327.721548 C196.313151,330.068092 192.427413,330.068131 190.030739,327.721634 C190.030725,327.72162 190.03071,327.721606 190.030695,327.721591 L110.834524,250.181849 C108.437875,247.835329 108.437875,244.030868 110.834524,241.684348 L128.397819,224.488418 C130.794468,222.141898 134.680206,222.141898 137.076856,224.488418 L193.284734,279.520668 C193.883897,280.107298 194.85533,280.107298 195.454493,279.520668 C195.454502,279.520659 195.45451,279.520651 195.454519,279.520644 L251.65958,224.488418 C254.056175,222.141844 257.941913,222.141756 260.338618,224.488222 C260.338651,224.488255 260.338684,224.488288 260.338717,224.488321 L316.546521,279.520644 C317.145683,280.107273 318.117118,280.107273 318.71628,279.520644 L374.923175,224.489406 C377.319825,222.142885 381.205562,222.142885 383.602212,224.489406 Z"
+                                            id="WalletConnect" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">WalletConnect</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                  <ul role="list" class="my-3">
-                    {% for p in prac_link %}
-                      <li class="my-2">
-                          <a href="{{p}}"> Practice Content {{forloop.counter}} </a>
-                      </li>
-                    {% endfor %}
-                  </ul>
+            <div class="pl-4 pr-4 pt-3 pb-0 max-w-sm bg-purple-500 rounded-lg border shadow-md sm:p-6 dark:bg-gray-800 dark:border-gray-700"
+                style="height:260px">
+                <h5 class="mb-2 text-base font-semibold text-gray-900 lg:text-xl dark:text-white">
+                    Practice Material 2
+                </h5>
+                <ul class="my-1 space-y-1">
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-card-text" viewBox="0 0 16 16" style="color: #6907ba;">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">MetaMask</span>
+                            <span
+                                class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Popular</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 292 292" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M145.7 291.66C226.146 291.66 291.36 226.446 291.36 146C291.36 65.5541 226.146 0.339844 145.7 0.339844C65.2542 0.339844 0.0400391 65.5541 0.0400391 146C0.0400391 226.446 65.2542 291.66 145.7 291.66Z"
+                                    fill="#3259A5"></path>
+                                <path
+                                    d="M195.94 155.5C191.49 179.08 170.8 196.91 145.93 196.91C117.81 196.91 95.0204 174.12 95.0204 146C95.0204 117.88 117.81 95.0897 145.93 95.0897C170.8 95.0897 191.49 112.93 195.94 136.5H247.31C242.52 84.7197 198.96 44.1797 145.93 44.1797C89.6904 44.1797 44.1104 89.7697 44.1104 146C44.1104 202.24 89.7004 247.82 145.93 247.82C198.96 247.82 242.52 207.28 247.31 155.5H195.94Z"
+                                    fill="white"></path>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Coinbase Wallet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            <svg class="h-5" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <radialGradient cx="0%" cy="50%" fx="0%" fy="50%" r="100%" id="radialGradient-1">
+                                        <stop stop-color="#5D9DF6" offset="0%"></stop>
+                                        <stop stop-color="#006FFF" offset="100%"></stop>
+                                    </radialGradient>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="logo">
+                                        <rect id="base" fill="url(#radialGradient-1)" x="0" y="0" width="512"
+                                            height="512" rx="256"></rect>
+                                        <path
+                                            d="M169.209772,184.531136 C217.142772,137.600733 294.857519,137.600733 342.790517,184.531136 L348.559331,190.179285 C350.955981,192.525805 350.955981,196.330266 348.559331,198.676787 L328.82537,217.99798 C327.627045,219.171241 325.684176,219.171241 324.485851,217.99798 L316.547278,210.225455 C283.10802,177.485633 228.89227,177.485633 195.453011,210.225455 L186.951456,218.549188 C185.75313,219.722448 183.810261,219.722448 182.611937,218.549188 L162.877976,199.227995 C160.481326,196.881474 160.481326,193.077013 162.877976,190.730493 L169.209772,184.531136 Z M383.602212,224.489406 L401.165475,241.685365 C403.562113,244.031874 403.562127,247.836312 401.165506,250.182837 L321.971538,327.721548 C319.574905,330.068086 315.689168,330.068112 313.292501,327.721609 C313.292491,327.721599 313.29248,327.721588 313.29247,327.721578 L257.08541,272.690097 C256.486248,272.103467 255.514813,272.103467 254.915651,272.690097 C254.915647,272.690101 254.915644,272.690105 254.91564,272.690108 L198.709777,327.721548 C196.313151,330.068092 192.427413,330.068131 190.030739,327.721634 C190.030725,327.72162 190.03071,327.721606 190.030695,327.721591 L110.834524,250.181849 C108.437875,247.835329 108.437875,244.030868 110.834524,241.684348 L128.397819,224.488418 C130.794468,222.141898 134.680206,222.141898 137.076856,224.488418 L193.284734,279.520668 C193.883897,280.107298 194.85533,280.107298 195.454493,279.520668 C195.454502,279.520659 195.45451,279.520651 195.454519,279.520644 L251.65958,224.488418 C254.056175,222.141844 257.941913,222.141756 260.338618,224.488222 C260.338651,224.488255 260.338684,224.488288 260.338717,224.488321 L316.546521,279.520644 C317.145683,280.107273 318.117118,280.107273 318.71628,279.520644 L374.923175,224.489406 C377.319825,222.142885 381.205562,222.142885 383.602212,224.489406 Z"
+                                            id="WalletConnect" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <span class="flex-1 ml-3 whitespace-nowrap">Next Topic</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-                  <button type="button" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center text-center">
-                   Complete   
-                  </button>
-                </center>
-             </div>
 
-        <!-- <div>
-            <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="600" height="350"
-                viewBox="0 0 853.11745 565" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                    d="M993.2113,545.61c-6.16016,6.73-13.79981,11.74-22.08985,15.63h-.01025c-.77979.37-1.56006.73-2.3501,1.07h-.00977l-.01025.01-.00977-.01h-.00976a.00988.00988,0,0,1-.01025.01H968.701l-.00976-.01c-.00977.01-.00977.01-.02,0l-.00977.01-.01025-.01h-.00977c-.01025.01-.01025.01-.02,0h-.01025a139.77437,139.77437,0,0,1-17.06006,6.1,236.6512,236.6512,0,0,1-105.10986,5.49c-.66993-.12-1.33008-.24-2-.36V492.43c.66015-.28,1.33007-.56,2-.83q6.55516-2.715,13.27-4.99,9.65991-3.3,19.58984-5.66a212.16658,212.16658,0,0,1,66.04-5.34q6.0454.45,12.06006,1.3c8.39013,1.17005,17.18994,3.21,24.93017,6.75h.00977c1.13037.53,2.24023,1.08,3.34033,1.67005,6.87988,3.73,12.67969,8.86,16.21973,15.89a30.57258,30.57258,0,0,1,2.72021,7.99v.02c.19971.96.33985,1.93.44971,2.89C1006.33141,523.96,1001.42126,536.63,993.2113,545.61Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <path
-                    d="M1005.07116,512.12a1.35827,1.35827,0,0,1-.29981.04q-25.69482,1.125-51.32031,3.34h-.02978c-.06983.01-.12989.01-.19971.02Q926.91149,517.8,900.7113,521.23c-.73975.1-1.47022.2-2.2002.29q-18.11939,2.415-36.16992,5.36-7.96509,1.305-15.8999,2.72c-.66993.12-1.33008.23-2,.36v-3.03c.66992-.13,1.33984-.24,2-.36q26.43016-4.68,53.04-8.17,6.69-.9,13.39991-1.7,19.37988-2.34,38.81982-4.04c.9502-.08,1.89014-.16,2.84033-.24q24.88477-2.115,49.83985-3.21a.939.939,0,0,1,.24023.02C1006.22155,509.37,1006.56139,511.77,1005.07116,512.12Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M969.49743,559.36319c-21.33986.15682-42.36351-8.89183-57.45793-23.86936a77.82614,77.82614,0,0,1-11.18417-14.07c-1.01743-1.63171-3.39758.16767-2.38888,1.78539,11.7227,18.80042,31.24951,32.19306,52.77823,37.11736a80.81149,80.81149,0,0,0,18.63625,1.99418c1.91362-.01407,1.51718-2.97155-.3835-2.95758Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M879.30114,480.95a1.6922,1.6922,0,0,1-1.25,1.13,65.2198,65.2198,0,0,0-14.07959,5.5,68.40608,68.40608,0,0,0-17.53027,13.25c-.27.27-.52979.54-.77979.82-.42041.44-.82031.89-1.22021,1.35v-4.36c.64013-.68,1.31005-1.35,2-1.99a71.91209,71.91209,0,0,1,13.27-10.04Q869.37121,483.31,879.30114,480.95Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M984.1,482.87181a69.40228,69.40228,0,0,0-32.42171,28.58557,1.49955,1.49955,0,0,0,.79261,1.95385,1.5276,1.5276,0,0,0,1.95385-.79261A66.04852,66.04852,0,0,1,985.221,485.635c1.76525-.75416.64785-3.51882-1.12092-2.76316Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M1025.02135,397.94c-2.32031,8.82-6.77,16.81-12.2998,24.1l-.01025.01c-.51026.68-1.04,1.37-1.58985,2.03v.01a139.27064,139.27064,0,0,1-12.41015,13.39,233.4288,233.4288,0,0,1-53.37012,38.13c-30.66992,16.02-64.94971,25.49-98.8999,26.03-.25977.01-.52.01-.77979.01-.41016.01-.82031.01-1.22021.01V456.21c.6499-1.24,1.31982-2.48,2-3.71a219.52414,219.52414,0,0,1,32.03027-43.82c.2998-.33.60986-.66.91992-.98q7.01953-7.41,14.71973-14.11a210.81877,210.81877,0,0,1,67.29-39.85c7.97021-2.86,16.71-5.15,25.21-5.6,1.25-.07,2.49023-.1,3.74023-.09,7.83008.11,15.33985,1.96,21.75,6.54a30.99854,30.99854,0,0,1,6.12012,5.81c.61963.77,1.18994,1.56,1.73975,2.37v.01C1026.58141,372.68,1028.12145,386.17,1025.02135,397.94Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <path
-                    d="M1019.9613,362.77v.01a1.46123,1.46123,0,0,1-.23975.17q-22.20043,12.915-43.84033,26.77c-.02.01-.02979.02-.04981.03a1.73947,1.73947,0,0,1-.18017.11q-22.24512,14.25-43.85987,29.46c-.60009.42-1.21.85-1.81982,1.28q-14.9253,10.545-29.54,21.54-27.60059,20.79-53.99023,43.12c-.66993.56-1.33008,1.13-2,1.7v-3.89c.66015-.57,1.33007-1.14,2-1.7q10.11035-8.535,20.3999-16.83c2.05029-1.65,4.10986-3.3,6.16992-4.93q27.45043-21.855,56.13037-42.08h.00977q5.64037-3.975,11.2998-7.88,16.08033-11.07,32.52051-21.61c.78955-.51,1.58984-1.02,2.38965-1.53q21.0454-13.44,42.64013-26a1.48864,1.48864,0,0,1,.22022-.11C1019.72155,359.8,1021.13122,361.78,1019.9613,362.77Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M1010.4094,421.13341c-18.82492,10.05171-41.64595,11.80452-61.97038,5.55268a77.82663,77.82663,0,0,1-16.44008-7.26456c-1.659-.97236-2.93089,1.72674-1.28615,2.69076,19.11437,11.20348,42.62774,13.99287,63.9802,8.35308a80.81169,80.81169,0,0,0,17.42988-6.891c1.6881-.90137-.03679-3.33625-1.71347-2.441Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M869.56249,457.72184a68.55277,68.55277,0,0,1-.95241-15.86924,72.31889,72.31889,0,0,1,10.7807-34.15065q7.02818-7.4075,14.72332-14.11226a1.70457,1.70457,0,0,1-.58619,1.58483,65.45128,65.45128,0,0,0-9.91171,11.40756,69.12172,69.12172,0,0,0-11.08214,50.89232,1.21242,1.21242,0,0,1-.31374,1.14283A1.62455,1.62455,0,0,1,869.56249,457.72184Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M987.809,346.61236a69.40222,69.40222,0,0,0-15.43281,40.37487,1.49954,1.49954,0,0,0,1.60951,1.36207,1.52761,1.52761,0,0,0,1.36207-1.60951,66.04848,66.04848,0,0,1,14.73742-38.20118c1.21291-1.48785-1.06086-3.41707-2.27619-1.92625Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M884.25133,379.47v.01c-.06982.86005-.1499,1.71-.24023,2.56v.02a141.29936,141.29936,0,0,1-3.25,17.96c-.69971,2.9-1.46,5.78-2.28955,8.66-.1001.37-.21045.74-.32031,1.1v.01a229.52292,229.52292,0,0,1-8.73975,24.65,238.91849,238.91849,0,0,1-22.97021,42.22c-.64991.97-1.31983,1.94-2,2.9V322.96c.66992-.04,1.33007-.04,2-.02q.47973,0,.96.03a30.32184,30.32184,0,0,1,8.28027,1.61005c.93994.31,1.84961.66,2.75,1.05,10.90967,4.78,19.48,15.32,23.19971,26.91C884.42126,361.22,884.98131,370.35,884.25133,379.47Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <path
-                    d="M858.43151,325.63a1.07625,1.07625,0,0,1-.11035.28q-6.07471,11.80509-11.87988,23.73c-.66993,1.37-1.33985,2.75-2,4.12v-6.8q.99023-2.04006,2-4.08,4.48535-9.09,9.12011-18.1a1.30351,1.30351,0,0,1,.12012-.2C856.60143,323.26,858.88122,324.16,858.43151,325.63Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M884.57116,381.08c-.17969.32-.35986.63995-.56006.96a79.81637,79.81637,0,0,1-10.41992,14.24,85.91629,85.91629,0,0,1-27.1499,19.77c-.66016.32-1.33008.62-2,.9V413.7c.66992-.3,1.33984-.61,2-.93a80.866,80.866,0,0,0,35.37011-32.82,1.64488,1.64488,0,0,1,2.43994-.47A1.15274,1.15274,0,0,1,884.57116,381.08Z"
-                    transform="translate(-173.44128 -167.5)" fill="#fff" />
-                <path
-                    d="M846.44128,200.5v76h-2v-.81h-669v.81h-2v-76a33.03244,33.03244,0,0,1,33-33h607A33.03244,33.03244,0,0,1,846.44128,200.5Z"
-                    transform="translate(-173.44128 -167.5)" fill="#6c63ff" />
-                <path
-                    d="M813.44128,167.5h-607a33.03244,33.03244,0,0,0-33,33v434a33.03244,33.03244,0,0,0,33,33h607a33.03244,33.03244,0,0,0,33-33v-434A33.03244,33.03244,0,0,0,813.44128,167.5Zm31,467a31.03964,31.03964,0,0,1-31,31h-607a31.03963,31.03963,0,0,1-31-31v-434a31.03963,31.03963,0,0,1,31-31h607a31.03964,31.03964,0,0,1,31,31Z"
-                    transform="translate(-173.44128 -167.5)" fill="#3f3d56" />
-                <circle cx="136" cy="54.5" r="20" fill="#fff" />
-                <circle cx="537" cy="54.5" r="20" fill="#fff" />
-                <path
-                    d="M367.22591,445.00191H248.24968a19.033,19.033,0,0,1-19.01145-19.01144V369.75784a19.033,19.033,0,0,1,19.01145-19.01144H367.22591a19.033,19.033,0,0,1,19.01145,19.01144v56.23263A19.033,19.033,0,0,1,367.22591,445.00191Z"
-                    transform="translate(-173.44128 -167.5)" fill="#6c63ff" />
-                <path
-                    d="M569.62448,445.00191H450.64824a19.033,19.033,0,0,1-19.01144-19.01144V369.75784a19.033,19.033,0,0,1,19.01144-19.01144H569.62448a19.033,19.033,0,0,1,19.01144,19.01144v56.23263A19.033,19.033,0,0,1,569.62448,445.00191Z"
-                    transform="translate(-173.44128 -167.5)" fill="#6c63ff" />
-                <path
-                    d="M569.62448,590.29329H450.64824a19.60963,19.60963,0,0,1-19.58755-19.58755V514.47255A19.60962,19.60962,0,0,1,450.64824,494.885H569.62448A19.60962,19.60962,0,0,1,589.212,514.47255v56.23319A19.60962,19.60962,0,0,1,569.62448,590.29329Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <path
-                    d="M366.83575,590.29329H247.85951A19.60963,19.60963,0,0,1,228.272,570.70574V514.47255A19.60962,19.60962,0,0,1,247.85951,494.885H366.83575a19.60962,19.60962,0,0,1,19.58755,19.58754v56.23319A19.60963,19.60963,0,0,1,366.83575,590.29329Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <path
-                    d="M772.023,590.29329H653.0468a19.60962,19.60962,0,0,1-19.58754-19.58755V514.47255A19.60962,19.60962,0,0,1,653.0468,494.885H772.023a19.60962,19.60962,0,0,1,19.58755,19.58754v56.23319A19.60963,19.60963,0,0,1,772.023,590.29329Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <path
-                    d="M772.023,445.115H653.0468a19.60962,19.60962,0,0,1-19.58754-19.58754V369.29426a19.60962,19.60962,0,0,1,19.58754-19.58755H772.023a19.60963,19.60963,0,0,1,19.58755,19.58755v56.23319A19.60962,19.60962,0,0,1,772.023,445.115Z"
-                    transform="translate(-173.44128 -167.5)" fill="#f2f2f2" />
-                <circle cx="134.29652" cy="230.37416" r="32.26184" fill="#fff" />
-                <path
-                    d="M304.5399,410.1813a3.34586,3.34586,0,0,1-2.01323-.66875l-.036-.027-7.58175-5.80486a3.3684,3.3684,0,1,1,4.09732-5.34756l4.91089,3.7656,11.6052-15.13487a3.36827,3.36827,0,0,1,4.72263-.62342l-.07215.098.074-.09655a3.3722,3.3722,0,0,1,.62341,4.72267l-13.6505,17.80224A3.36974,3.36974,0,0,1,304.5399,410.1813Z"
-                    transform="translate(-173.44128 -167.5)" fill="#6c63ff" />
-                <circle cx="337.27119" cy="229.91085" r="32.26184" fill="#fff" />
-                <path
-                    d="M507.51457,409.718a3.3459,3.3459,0,0,1-2.01324-.66874l-.036-.027-7.58176-5.80486a3.3684,3.3684,0,1,1,4.09733-5.34756l4.91088,3.7656,11.6052-15.13488a3.3683,3.3683,0,0,1,4.72264-.62341l-.07215.098.074-.09654a3.37217,3.37217,0,0,1,.62341,4.72266l-13.65049,17.80224A3.36974,3.36974,0,0,1,507.51457,409.718Z"
-                    transform="translate(-173.44128 -167.5)" fill="#6c63ff" />
-                <path
-                    d="M728.75351,549.64979a10.74269,10.74269,0,0,0-2.18282-16.32737l-18.01117-96.17273-21.90458,8.12263,24.59219,91.98054a10.80091,10.80091,0,0,0,17.50638,12.39693Z"
-                    transform="translate(-173.44128 -167.5)" fill="#a0616a" />
-                <path
-                    d="M553.96858,402.90038a11.40614,11.40614,0,0,1,.02187,1.79608l42.59,32.77955,12.0777-4.95957,9.86722,17.24911-20.528,10.85781a8.66955,8.66955,0,0,1-10.27652-1.62745l-42.571-43.8892a11.37563,11.37563,0,1,1,8.81868-12.20633Z"
-                    transform="translate(-173.44128 -167.5)" fill="#a0616a" />
-                <polygon points="480.028 552.849 467.769 552.849 461.936 515.561 480.031 515.562 480.028 552.849"
-                    fill="#a0616a" />
-                <path
-                    d="M656.59617,732.23337l-39.53051-.00146v-.5a15.38605,15.38605,0,0,1,15.38647-15.38623h.001l24.1438.001Z"
-                    transform="translate(-173.44128 -167.5)" fill="#2f2e41" />
-                <polygon points="526.028 552.849 513.769 552.849 507.936 515.561 526.031 515.562 526.028 552.849"
-                    fill="#a0616a" />
-                <path
-                    d="M702.59617,732.23337l-39.53051-.00146v-.5a15.38605,15.38605,0,0,1,15.38647-15.38623h.001l24.1438.001Z"
-                    transform="translate(-173.44128 -167.5)" fill="#2f2e41" />
-                <path
-                    d="M638.6643,712.9793a4.49017,4.49017,0,0,1-4.47485-4.07226L623.50586,565.21758l.50488-.041,73.521-6.043.01978.52246L703.396,708.50664a4.49964,4.49964,0,0,1-4.49707,4.668H684.48339a4.475,4.475,0,0,1-4.44751-3.81543L660.45971,589.11407a.5.5,0,0,0-.99414.07226L658.57763,707.91a4.50454,4.50454,0,0,1-4.26318,4.46192l-15.40869.60058C638.82495,712.97735,638.74414,712.9793,638.6643,712.9793Z"
-                    transform="translate(-173.44128 -167.5)" fill="#2f2e41" />
-                <circle cx="477.7719" cy="191.56438" r="24.56103" fill="#a0616a" />
-                <path
-                    d="M655.96792,574.38164a121.03726,121.03726,0,0,1-31.76839-4.34179,4.51046,4.51046,0,0,1-3.2358-4.68653c3.30645-49.69336,4.08385-88.25683-2.86906-114.939-2.96342-11.37207-1.618-23.34912,3.69108-32.85986,7.98992-14.313,22.67547-23.02442,38.34016-22.72364h0q1.12287.02124,2.26805.08008c23.7729,1.22412,42.29735,22.73047,41.29428,47.9419l-4.78177,120.16845a4.43993,4.43993,0,0,1-2.81538,4.04395A114.24513,114.24513,0,0,1,655.96792,574.38164Z"
-                    transform="translate(-173.44128 -167.5)" fill="#3f3d56" />
-                <path
-                    d="M622.13643,459.64084l-18.39762-22.54449a5.76149,5.76149,0,0,1,1.51427-8.59185l24.92148-14.85005a16.00071,16.00071,0,0,1,20.16015,24.85261l-19.47729,21.37306a5.7615,5.7615,0,0,1-8.721-.23928Z"
-                    transform="translate(-173.44128 -167.5)" fill="#3f3d56" />
-                <path
-                    d="M680.01136,456.81194a5.7553,5.7553,0,0,1-3.16409-3.60611l-8.282-27.70526A16.00071,16.00071,0,0,1,697.50865,411.849L713.525,436.03743a5.7615,5.7615,0,0,1-2.36144,8.3986l-26.35426,12.3361A5.755,5.755,0,0,1,680.01136,456.81194Z"
-                    transform="translate(-173.44128 -167.5)" fill="#3f3d56" />
-                <path
-                    d="M663.35014,379.21724l-18.206-4.16705c-1.87794-.42983-4.13413-1.24991-4.39457-3.15873-.35-2.56513,3.34149-4.35213,3.001-6.91854-.32983-2.48578-3.69254-2.80615-6.09035-3.53991a9.11065,9.11065,0,0,1-5.67236-11.34023c-2.59437,3.656-8.52155,3.96913-11.88655,1.00712s-4.01043-8.33613-1.98963-12.33777a14.28744,14.28744,0,0,1,10.724-7.2405,22.61663,22.61663,0,0,1,13.02306,2.42787c.26664-2.83339,3.80421-3.98207,6.65-4.00735a28.43074,28.43074,0,0,1,26.64315,19.4463c3.492,11.25212,1.15619,23.58635-8.6142,30.16993Z"
-                    transform="translate(-173.44128 -167.5)" fill="#2f2e41" />
-                <path d="M846.72868,732.5h-381a1,1,0,1,1,0-2h381a1,1,0,1,1,0,2Z"
-                    transform="translate(-173.44128 -167.5)" fill="#3f3d56" />
-            </svg>
-        </div> -->
+        </div>
     </div>
-
 
 </body>
 
