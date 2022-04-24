@@ -10,9 +10,9 @@ urlpatterns = [
     path('test/<str:topic>/instruction', views.instruction, name="instruction"),
     path('test/<str:topic>/<str:level>', views.test, name="test"),
     path('testScore/<str:topic>/<str:level>', views.testScore, name="testScore"),
-    path('levelDecider', views.levelDecider),
+    path('levelDecider/<str:topic>', views.levelDecider),
     path('cognitiveTest', views.cognitiveTest),
     path('cogScore', views.cogScore),
-    path('customSearch', views.customSearch),
+    path('customSearch/<str:topic>', views.customSearch),
     path('graph', views.graph)
 ]
