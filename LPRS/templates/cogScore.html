@@ -109,20 +109,30 @@
         <i class="fas fa-calendar-check details text-green-500 text-5xl"></i>
         <h1 class="text-white text-xl"><strong>Cognitive Assessment Results !</strong></h1>
       </div>
-      <hr class="mt-2">
-      <div class="py-8 modal-body">
+
+      <hr class="my-2 bg-white" style="border-top-width: 1px">
+
+      <div class="pt-8 pb-0 modal-body">
         <div class="grid grid-cols-2">
           <div style="text-align: left;" class="pl-6">
             <strong>
               <h3 class="text-white">Your Cognitive Scores are as follows : </h3>
             </strong>
+            <hr class='my-2 bg-white' style="height:0.8px">
+
             <ul>
               <li><strong>
                   <p class="text-white">Visual Score : {{vts}}</p>
                 </strong></li>
+
+              <hr class='my-2 bg-white' style="height:0.5px">  
+
               <li><strong>
                   <p class="text-white">Textual Score : {{tts}}</p>
                 </strong></li>
+
+              <hr class='my-2 bg-white' style="height:0.5px"> 
+
               <li><strong>
                   <p class="text-white">Your content will be contain {{vts}}0% video material and {{tts}}0% text
                     material.</p>
@@ -212,11 +222,21 @@
           </div>
         </div>
       </div>
+
       <div class="modal-footer py-4">
-        <button id="close" onclick="changeWindowModal()"
-          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow">
+      <form action="/graph" method="post">{% csrf_token %}
+        <label class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow">Choose programming language</label>
+        <select name="lang" class="mr-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow" required>
+          <option value="java">Java</option>
+          <option value="c++">C++</option>
+          <option value="javascript">Javascript</option>
+          <option value="python">Python</option>
+        </select>
+        <button type="submit"
+          class="ml-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-gray-400 rounded shadow">
           Proceed to content.
         </button>
+      </form>
       </div>
     </div>
   </div>
@@ -228,10 +248,6 @@
     window.onload = function () {
       modal = document.getElementById('modal')
       modal.style.display = 'block'
-    }
-
-    function changeWindowModal(id) {
-      window.location = '/customSearch'
     }
   </script>
 </body>
