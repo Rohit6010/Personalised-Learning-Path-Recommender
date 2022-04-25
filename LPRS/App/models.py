@@ -165,7 +165,7 @@ class Practice(models.Model):
     question = models.CharField(max_length=500)
     link = models.CharField(max_length=500)
     level = models.CharField(max_length=50)
-    subTopic = models.CharField(max_length=100)
+    # subTopic = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__ (self):
-        return "("+self.topic + ", "+ self.subTopic+") "+ self.question
+        return "("+self.topic+") ("+self.level+") "+ self.question
