@@ -74,7 +74,7 @@
   }
 
   .text h3 {
-    font-size: 5em;
+    font-size: 4.5em;
     font-weight: 800;
     color: rgb(109, 108, 108);
     line-height: 1em;
@@ -82,8 +82,8 @@
   }
 
   .text h4 {
-    font-size: 3.5em;
-    font-weight: 700;
+    font-size: 2em;
+    font-weight: 800;
     color: rgb(113, 112, 112);
     line-height: 1em;
     text-transform: uppercase;
@@ -98,7 +98,7 @@
     max-width: 700px;
   }
 
-  .text a {
+  /* .text a {
     display: inline-block;
     font-size: 1em;
     background: rgb(118, 118, 118);
@@ -114,7 +114,7 @@
 
   .text a:hover {
     letter-spacing: 6px;
-  }
+  } */
 
 
   @media (max-width: 991px) {
@@ -168,12 +168,12 @@
           {% endif %}
           <li class="bg-yellow-500 rounded px-4 py-1">
             {% if request.user.is_authenticated %}
-            <a href="logout"
-              class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+            <a href="/logout"
+              class="block py-1 px-2 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
               aria-current="page">Logout</a>
             {% else %}
-            <a href="login"
-              class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+            <a href="/login"
+              class="block py-1 px-2 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
               aria-current="page">Login</a>
             {% endif %}
           </li>
@@ -187,52 +187,21 @@
     <img src="/static/images/landing_Logo.png" alt="NITPLogo">
     </center>
   </div>
-  <div class="grid grid-cols-2">
-    <div class="text pl-16 pr-16 pb-16 pt-8">
-      <h3 class="tracking-tight hover:tracking-wide">Personalised Learning</h3>
-      <h4 class="tracking-tight hover:tracking-wide">Path Recommender</h4>
-      <h6 class="tracking-tight hover:tracking-wide">Covers DataStructure and Algorithms for Placements</h6>
-      <script>
-        /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
-        function myFunction() {
-          document.getElementById("myDropdown").classList.toggle("show");
-        }
 
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function (event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-              }
-            }
-          }
-        }
-      </script>
-      <!-- js ends -->
-      <div class="dropdown">
-        <button onclick="myFunction()" class="px-16 dropbtn mr-10" style="border-radius: 5px;">Choose Topic
-        </button>
-        <div id="myDropdown" class="mt-2 px-8 py-4 dropdown-content">
-          <a style="border-radius: 5px;" href="/test/Array/instruction">Array</a>
-          <a style="border-radius: 5px;" href="/test/String/instruction">String</a>
-          <a style="border-radius: 5px;" href="/test/LinkedList/instruction">LinkedList</a>
-          <a style="border-radius: 5px;" href="/test/Stack/instruction">Stack</a>
-          <a style="border-radius: 5px;" href="/test/Queue/instruction">Queue</a>
-          <a style="border-radius: 5px;" href="/test/Tree/instruction">Tree</a>
-          <a style="border-radius: 5px;" href="/test/Graph/instruction">Graph</a>
-          <a style="border-radius: 5px;" href="/test/DP/instruction">Dynamic Programming</a>
-          <a style="border-radius: 5px;" href="/test/Recursion/instruction">Recursion</a>
-          <a style="border-radius: 5px;" href="/test/Heap/instruction">Heap</a>
-        </div>
-      </div>
+  <div class="grid grid-cols-2">
+    <div class="text pl-24 pr-16 pb-16 pt-8 mt-4">
+      <h3 class="tracking-tight hover:tracking-wide">Personalised Learning</h3>
+      <h4 class="tracking-tight hover:tracking-wide">System Of Data Structure And Algorithms For Placements</h4>
+      <button type="button" class="mt-8 text-white text-2xl bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><strong>Based on styles of learning of Students</strong></button>
+      <br>
+      {% if request.user.is_authenticated %}
+        <a href="/chooseTopic">
+          <button type="button" class="mt-8 text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Choose Topic</button>
+        </a>
+      {% endif %} 
     </div>
-    <div class="mt-8">
-      <svg class="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="600" height="400"
+    <div class="mt-12 ml-32">
+      <svg class="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="530" height="370"
         viewBox="0 0 904.51179 587.86116" xmlns:xlink="http://www.w3.org/1999/xlink">
         <path
           d="M1030.78225,515.09691H998.97854a4.50052,4.50052,0,0,1-3.53467-1.70263,4.4081,4.4081,0,0,1-.86279-3.74561,86.5354,86.5354,0,0,0-.41992-40.00439,4.471,4.471,0,0,1,2.42236-5.13086c13.28418-6.21778,25.4834-6.05567,36.25684.48047a4.52651,4.52651,0,0,1,2.14306,3.15136,141.55237,141.55237,0,0,1,.25928,43.08008A4.49087,4.49087,0,0,1,1030.78225,515.09691Z"

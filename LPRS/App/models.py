@@ -190,7 +190,20 @@ class Practice(models.Model):
     question = models.CharField(max_length=500)
     link = models.CharField(max_length=500)
     level = models.CharField(max_length=50)
-    subTopic = models.CharField(max_length=100)
 
     def __str__ (self):
-        return "("+self.topic + ", "+ self.subTopic+") "+ self.question
+        return "("+self.topic + ", "+ self.level+") "+ self.question
+
+class PracticeQuiz(models.Model):
+    topic = models.CharField(max_length=50)
+    question = models.CharField(max_length=500)
+    option1 = models.CharField(max_length=100)
+    option2 = models.CharField(max_length=100)
+    option3 = models.CharField(max_length=100)
+    option4 = models.CharField(max_length=100)
+    answer = models.CharField(max_length=100)
+    level = models.CharField(max_length=100)
+
+    def __str__ (self):
+        return "("+self.topic + ", "+ self.level+") "+ self.question
+

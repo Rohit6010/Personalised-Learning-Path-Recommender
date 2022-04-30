@@ -46,11 +46,11 @@
               {% endif %}
               <li class="bg-yellow-500 rounded px-4 py-1">
                 {% if request.user.is_authenticated %}
-                <a href="logout"
+                <a href="/logout"
                   class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                   aria-current="page">Logout</a>
                 {% else %}
-                <a href="login"
+                <a href="/login"
                   class="block py-2 pr-4 pl-3 text-white text-md bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                   aria-current="page">Login</a>
                 {% endif %}
@@ -58,37 +58,36 @@
             </ul>
           </div>
         </div>
-      </nav>
+    </nav>
     
+    <div class="px-8 py-3 bg-blue-400 text-white font-medium text-md leading-tight uppercase rounded shadow-md hover:bg-blue-500 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+      <center>
+         Content Level <span class="inline-block py-1.5 px-2 leading-none text-center whitespace-nowrap align-baseline font-bold bg-yellow-600 text-white rounded ml-4">{{level}}</span>
+      </center>
+    </div>
+
 
     <div class="flex space-x-2 ml-16 mt-16 justify-center">
         <button type="button"
-            class="inline-block mt-2 px-6 py-2.5 bg-yellow-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
+            class="inline-block mt-2 px-6 py-2.5 bg-yellow-400 text-white font-medium text-md leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
             Score Easy
             <span
                 class="inline-block py-1 px-1.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-cyan-600 text-white rounded ml-4">{{scoreEasy}}</span>
         </button><br>
         <button type="button"
-            class="inline-block mt-2 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
+            class="inline-block mt-2 px-6 py-2.5 bg-green-500 text-white font-medium text-md leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
             Score Medium
             <span
                 class="inline-block py-1 px-1.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-pink-800 text-white rounded ml-4">{{scoreImd}}</span>
         </button><br>
         <button type="button"
-            class="inline-block mt-2 px-8 py-2.5 bg-red-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
+            class="inline-block mt-2 px-8 py-2.5 bg-red-500 text-white font-medium text-md leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
             Score Hard
             <span
                 class="inline-block py-1 px-1.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-cyan-600 text-white rounded ml-4">{{scoreExp}}</span>
         </button>
     </div>
-    <div class="flex space-x-2 ml-16 mt-16 justify-center">
-        <button type="button"
-            class="inline-block mt-2 px-8 py-2.5 bg-blue-400 text-black font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg focus:bg-blue-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center">
-            Content Level
-            <span
-                class="inline-block py-1 px-1.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded ml-4">{{level}}</span>
-        </button>
-    </div>
+    
   
     <div class="flex space-x-2 ml-16 mt-16 justify-center">
         <a href="/cognitiveTest">

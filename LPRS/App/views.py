@@ -46,11 +46,15 @@ def handleLogin(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Successfully logged in!")
-            return redirect('/')
+            return redirect('/chooseTopic')
         else:
             messages.warning(request, "Invalid Credentials, please try again!")
             return HttpResponse("<h3>Invalid Credentials, please try again!</h3><br><a href='/signup'> Click here</a>")
     return render(request,'open.html')
+
+def chooseTopic(request):
+    return render(request, 'choose.html')
+
 
 def instruction(request, topic):
     return render(request, 'instruction.html', {"topic":topic})
@@ -96,7 +100,7 @@ def test(request, topic, level):
        context["color"] = 'yellow'
     else:
        context["level"] = 'Expert'
-       context["color"] = 'red'
+       context["color"] = 'blue'
     
     context['link'] = level
     return render(request, 'test.html', context)
@@ -387,10 +391,10 @@ def customSearch(request, topic):
         ind=-1
     topic = topic[:-1]
     topic = topic + str(ind)
-    prac_links = ['abcdedfgryjbvhg', 'jsdfhwhfuryofkbej;ghtekbnrkltji', 'bchfhufiehwjb']
-    return render(request, 'learnPath.html', {'text_link' : text_links, 'vis_link' : vis_links, 'prac_link' : prac_links, 'topic' : topic, 'ind': ind, 'subtopic':topics[ind-1]})
 
 
+    practices = Practice.objects.filter(topic=student.curr_topic, level='Easy')
+    return render(request, 'learnPath.html', {'text_link' : text_links, 'vis_link' : vis_links, 'practices' : practices, 'topic' : topic, 'ind': ind, 'subtopic':topics[ind-1]})
 
 def graph(request):
     #save preffered language
@@ -420,8 +424,6 @@ def graph(request):
     print(topicstr)
     return redirect('customSearch/' + topicstr)
     
-
-
 class App:
 
     def __init__(self, uri, user, password):
